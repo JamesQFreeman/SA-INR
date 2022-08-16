@@ -27,9 +27,9 @@
     <hr>
     <p class="authors">
         <a href="https://yinboc.github.io/">Xin Wang<sup>✝</sup></a>,&emsp;
-        <a href="https://www.sifeiliu.net/">Sheng Wang<sup>✝</sup></a>,&emsp;
-        <a href="https://www.sifeiliu.net/">Kai Xuan</a>,&emsp;
-        <a href="https://xiaolonw.github.io/">Qian Wang<sup>*</sup></a>
+        <a href="https://github.com/JamesQFreeman">Sheng Wang<sup>✝</sup></a>,&emsp;
+        <a href="https://github.com/woxuankai">Kai Xuan</a>,&emsp;
+        <a href="https://qianwang.space">Qian Wang<sup>*</sup></a>
     </p>
     <div class="btn-group" role="group" aria-label="Top menu">
         <a class="btn btn-primary" href="https://arxiv.org/pdf/2205.11346.pdf">Paper</a>
@@ -61,28 +61,30 @@
         <h2>Self-Supervised Arbitrary Slice Spacing Reduction of Knee MRI Slice Spacing</h2>
         <hr>
         <p>
-            We generate LIIF representation for a given input image. On a continuous representation with infinite resolution, we can zoom in on the image while maintaining high fidelity. We compare LIIF with the raw pixels and bilinear interpolation in the following.
+            In clinical practice, some body parts (e.g., knee and ankle) typically only requires 2D protocols acquired LR MR images because of the shorter scan time.
+Therefore, paired LR/HR images are not popularly available to offer a full voxel-to-voxel supervision.
+We deploy our proposed model on a self-supervised reduction of MRI slice spacing framework to test our model's ability to apply to real-world clinical scenarios.
         </p>
 
         <div class="row align-items-center">
-            <div class="col-sm-3 text-center">
+            <div class="col-sm-4 text-center">
                 <h4>Input (4.5mm)</h4>
             </div>
             <!-- <div class="col-sm-3 text-center">
                 <h4>Pixels</h4>
             </div> -->
-            <div class="col-sm-3 text-center">
+            <div class="col-sm-4 text-center">
                 <h4>Trilinear resize</h4>
             </div>
-            <div class="col-sm-3 text-center">
+            <div class="col-sm-4 text-center">
                 <h4>Proposed (ours)</h4>
             </div>
         </div>
         <div class="row align-items-center">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <img src="assets/window.png" style="width:100%">
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <video width="100%" playsinline autoplay loop preload muted>
                     <source src="assets/window.mp4" type="video/mp4">
                 </video>
@@ -90,10 +92,10 @@
         </div>
         <hr>
         <div class="row align-items-center">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <img src="assets/umb.png" style="width:100%">
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <video width="100%" playsinline autoplay loop preload muted>
                     <source src="assets/umb.mp4" type="video/mp4">
                 </video>
@@ -101,10 +103,10 @@
         </div>
         <hr>
         <div class="row align-items-center">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <img src="assets/castle.png" style="width:100%">
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <video width="100%" playsinline autoplay loop preload muted>
                     <source src="assets/castle.mp4" type="video/mp4">
                 </video>
@@ -112,10 +114,10 @@
         </div>
 		<hr>
         <div class="row align-items-center">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <img src="assets/detective.png" style="width:100%">
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <video width="100%" playsinline autoplay loop preload muted>
                     <source src="assets/detective.mp4" type="video/mp4">
                 </video>
@@ -127,8 +129,7 @@
         <h2>Supervised Arbitrary Slice Spacing Reduction of HCP-1200</h2>
         <hr>
         <p>
-            LIIF representation is resolution-free, it can be presented in arbitrary resolution.
-            We present the generated LIIF representation in changing resolution from 32×32 to 640×640. The following results are visualized by nearest up-sampling.
+            Changing Slice Spacing from 4mm to 1mm. The following results are visualized by nearest up-sampling.
         </p>
         <div class="row align-items-center">
             <div class="col-sm-6 text-center">
@@ -159,18 +160,19 @@
                 </video>
             </div>
         </div>
+        <!-- <p>Also, we compared the proposed method with other super-resolution methods.</p> -->
     </div>
 
     <div class="section">
         <h2>BibTeX</h2>
         <hr>
         <div class="bibtexsection">
-        @article{wang2022arbitrary,
-            title={Arbitrary Reduction of MRI Slice Spacing Based on Local-Aware Implicit Representation},
-            author={Wang, Xin and Xuan, Kai and Wang, Sheng and Xiong, Honglin and Zhang, Lichi and Wang, Qian},
-            journal={arXiv preprint arXiv:2205.11346},
-            year={2022}
-            }
+@article{wang2022arbitrary,
+    title={Arbitrary Reduction of MRI Slice Spacing Based on Local-Aware Implicit Representation},
+    author={Wang, Xin and Xuan, Kai and Wang, Sheng and Xiong, Honglin and Zhang, Lichi and Wang, Qian},
+    journal={arXiv preprint arXiv:2205.11346},
+    year={2022}
+    }
         </div>
     </div>
 
