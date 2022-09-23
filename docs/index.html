@@ -23,14 +23,14 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container"></div>
     <h2>Efficient Arbitrary Reduction of MRI Slice Spacing</h2>
-    <!-- <h3>CVPR 2021 (Oral)</h3> -->
     <hr>
     <p class="authors">
-        <a href="https://yinboc.github.io/">Xin Wang<sup>✝</sup></a>,&emsp;
-        <a href="https://github.com/JamesQFreeman">Sheng Wang<sup>✝</sup></a>,&emsp;
+        Xin Wang<sup>†</sup>,&emsp;
+        <!-- <a href="https://yinboc.github.io/">Xin Wang<sup>†</sup></a>,&emsp; -->
+        <a href="https://github.com/JamesQFreeman">Sheng Wang<sup>†</sup></a>,&emsp;
         <a href="https://github.com/woxuankai">Kai Xuan</a>,&emsp;
-        Honglin Xiong;
-        <a href="https://github.com/woxuankai">Lichi Zhang</a>,&emsp;
+        Honglin Xiong, &emsp;
+        Lichi Zhang, &emsp;
         <a href="https://qianwang.space">Qian Wang<sup>*</sup></a>
     </p>
     <div class="btn-group" role="group" aria-label="Top menu">
@@ -60,21 +60,21 @@
     </div>
 
     <div class="section">
-        <h2>Self-Supervised Arbitrary Slice Spacing Reduction of Knee MRI</h2>
+        <h2>Arbitrary Slice Spacing Reduction without Supervision</h2>
         <hr>
         <p>
             In clinical practice, some body parts (e.g., knee and ankle) typically only requires 2D protocols acquired LR MR images because of the shorter scan time.
 Therefore, paired LR/HR images are not popularly available to offer a full voxel-to-voxel supervision.
 We deploy our proposed model on a self-supervised reduction of MRI slice spacing framework to test our model's ability to apply to real-world clinical scenarios.
         </p>
+        <p>
+            The results here are not cherry-picked
+        </p>
 
         <div class="row align-items-center">
             <div class="col-sm-4 text-center">
                 <h4>Input (4.5mm)</h4>
             </div>
-            <!-- <div class="col-sm-3 text-center">
-                <h4>Pixels</h4>
-            </div> -->
             <div class="col-sm-4 text-center">
                 <h4>Trilinear resize</h4>
             </div>
@@ -106,11 +106,11 @@ We deploy our proposed model on a self-supervised reduction of MRI slice spacing
         <hr>
         <div class="row align-items-center">
             <div class="col-sm-4">
-                <img src="assets/output_2_axial_160.png" style="width:100%">
+                <img src="assets/output_2_axial_159.png" style="width:100%">
             </div>
             <div class="col-sm-8">
                 <video width="100%" playsinline autoplay loop preload muted>
-                    <source src="assets/output_2_axial_160.webm" type="video/mp4">
+                    <source src="assets/output_2_axial_159.webm" type="video/mp4">
                 </video>
             </div>
         </div>
