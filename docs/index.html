@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-          content="Efficient Arbitrary Reduction of MRI Slice Spacing">
+    <meta name="description" content="Efficient Arbitrary Reduction of MRI Slice Spacing">
     <meta name="author" content="Xin Wang, Sheng Wang, Kai Xuan, Lichi Zhang, Qian Wang">
 
     <title>Efficient Arbitrary Reduction of MRI Slice Spacing</title>
     <!-- Bootstrap core CSS -->
     <!--link href="bootstrap.min.css" rel="stylesheet"-->
     <link rel="stylesheet" href="bootstrapcore.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="offcanvas.css" rel="stylesheet">
@@ -20,128 +20,142 @@
 </head>
 
 <body>
-<div class="jumbotron jumbotron-fluid">
-    <div class="container"></div>
-    <h2>Efficient Arbitrary Reduction of MRI Slice Spacing</h2>
-    <hr>
-    <p class="authors">
-        Xin Wang<sup>†</sup>,&emsp;
-        <!-- <a href="https://yinboc.github.io/">Xin Wang<sup>†</sup></a>,&emsp; -->
-        <a href="https://github.com/JamesQFreeman">Sheng Wang<sup>†</sup></a>,&emsp;
-        <a href="https://github.com/woxuankai">Kai Xuan</a>,&emsp;
-        Honglin Xiong, &emsp;
-        Lichi Zhang, &emsp;
-        <a href="https://qianwang.space">Qian Wang<sup>*</sup></a>
-    </p>
-    <div class="btn-group" role="group" aria-label="Top menu">
-        <a class="btn btn-primary" href="https://arxiv.org/pdf/2205.11346.pdf">Paper</a>
-        <a class="btn btn-primary" href="https://github.com/JamesQFreeman/Efficient-Arbitrary-Reduction-of-MRI-Slice-Spacing">Code</a>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container"></div>
+        <h2>Efficient Arbitrary Reduction of MRI Slice Spacing</h2>
+        <hr>
+        <p class="authors">
+            Xin Wang<sup>†</sup>,&emsp;
+            <!-- <a href="https://yinboc.github.io/">Xin Wang<sup>†</sup></a>,&emsp; -->
+            <a href="https://github.com/JamesQFreeman">Sheng Wang<sup>†</sup></a>,&emsp;
+            <a href="https://github.com/woxuankai">Kai Xuan</a>,&emsp;
+            Honglin Xiong, &emsp;
+            Lichi Zhang, &emsp;
+            <a href="https://qianwang.space">Qian Wang<sup>*</sup></a>
+        </p>
+        <div class="btn-group" role="group" aria-label="Top menu">
+            <a class="btn btn-primary" href="https://arxiv.org/pdf/2205.11346.pdf">Paper</a>
+            <a class="btn btn-primary"
+                href="https://github.com/JamesQFreeman/Efficient-Arbitrary-Reduction-of-MRI-Slice-Spacing">Code</a>
+        </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="section">
-        <img src="assets/fig1.png" alt="Main Method" width="700" class="center">
-        <!-- <div class="vcontainer">
+    <div class="container">
+        <div class="section">
+            <img src="assets/framework_221013.jpg" alt="Main Method" width="700" class="center">
+            <!-- <div class="vcontainer">
             <iframe class='video' src="https://www.youtube.com/embed/6f2roieSY_8" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
         </div> -->
-        <hr>
-        <p>
-            MR images collected in 2D protocols typically have large inter-slice spacing, resulting in high in-plane resolution and reduced through-plane resolution because of the limitations of scanning duration and signal-to-noise ratio.
-            Super-resolution is a powerful tool to reduce the inter-slice spacing of MR images to facilitate subsequent visualization and computation tasks. 
-            However, most existing works train the super-resolution network at a fixed ratio, which is inconvenient in clinical scenes due to the heterogeneous parameters in MR scanning. 
-            In this paper, we propose a single super-resolution network for continuous reduction of MR slice spacing.
-            By view the input image as a continuous implicit function of coordinates, the intermediate slices of different spacing ratios could be constructed according to the up-sampled coordinates in the continuous domain. 
-            Particularly, we propose a novel local-aware spatial attention operation to extend the reception field for each spatial coordinate, so as to boost the quality of output image. Meanwhile, we propose a gradient-guided gating mask for conditionally applying the local-aware spatial attention in the spatial domain. In this way, we could achieve comparable and even better performance while reducing the computation brought by the attention operation.
-            The experimental results demonstrate the superiority of our proposed method, even compared to the models trained at a fixed ratio.
-        </p>
-    </div>
+            <hr>
+            <p>
+                Magnetic resonance (MR) images collected in 2D clinical protocols typically have large inter-slice
+                spacing, resulting in high in-plane resolution and reduced through-plane resolution.
+                Super-resolution technique can enhance the through-plane resolution of MR images to facilitate
+                downstream visualization and computer-aided diagnosis.
+                However, most existing works train the super-resolution network at a fixed scaling factor, which is not
+                friendly to clinical scenes of varying inter-slice spacing in MR scanning.
+                Inspired by the recent progress in implicit neural representation, we propose a Spatial
+                Attention-based Implicit Neural Representation (SA-INR) network for arbitrary reduction of MR
+                inter-slice spacing.
+                The SA-INR aims to represent an MR image as a continuous implicit function of 3D coordinates.
+                In this way, the SA-INR can reconstruct the MR image with arbitrary inter-slice spacing by continuously
+                sampling the coordinates in 3D space.
+                In particular, a local-aware spatial attention operation is introduced to model nearby voxels and their
+                affinity more accurately in a larger receptive field.
+                Meanwhile, to improve the computational efficiency, a gradient-guided gating mask is proposed for
+                applying the local-aware spatial attention to selected areas only.
+                We evaluate our method on the public HCP-1200 dataset and the clinical knee MR dataset to demonstrate
+                its superiority over other existing methods.
+            </p>
+        </div>
 
-    <div class="section">
-        <h2>Arbitrary Slice Spacing Reduction without Supervision</h2>
-        <hr>
-        <p>
-            In clinical practice, some body parts (e.g., knee and ankle) typically only requires 2D protocols acquired LR MR images because of the shorter scan time.
-Therefore, paired LR/HR images are not popularly available to offer a full voxel-to-voxel supervision.
-We deploy our proposed model on a self-supervised reduction of MRI slice spacing framework to test our model's ability to apply to real-world clinical scenarios.
-        </p>
-        <p>
-            The results here are not cherry-picked
-        </p>
+        <div class="section">
+            <h2>Arbitrary Slice Spacing Reduction without Supervision</h2>
+            <hr>
+            <p>
+                In clinical practice, some body parts (e.g., knee and ankle) typically only requires 2D protocols
+                acquired LR MR images because of the shorter scan time.
+                Therefore, paired LR/HR images are not popularly available to offer a full voxel-to-voxel supervision.
+                We deploy our proposed model on a self-supervised reduction of MRI slice spacing framework to test our
+                model's ability to apply to real-world clinical scenarios.
+            </p>
+            <p>
+                The results here are not cherry-picked
+            </p>
 
-        <div class="row align-items-center">
-            <div class="col-sm-4 text-center">
-                <h4>Input (4.5mm)</h4>
+            <div class="row align-items-center">
+                <div class="col-sm-4 text-center">
+                    <h4>Input (4.5mm)</h4>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <h4>Trilinear resize</h4>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <h4>Proposed (ours)</h4>
+                </div>
             </div>
-            <div class="col-sm-4 text-center">
-                <h4>Trilinear resize</h4>
+            <div class="row align-items-center">
+                <div class="col-sm-4">
+                    <img src="assets/output_1_coronal_130.png" style="width:100%">
+                </div>
+                <div class="col-sm-8">
+                    <video width="100%" playsinline autoplay loop preload muted>
+                        <source src="assets/output_1_coronal_130.webm" type="video/mp4">
+                    </video>
+                </div>
             </div>
-            <div class="col-sm-4 text-center">
-                <h4>Proposed (ours)</h4>
+            <hr>
+            <div class="row align-items-center">
+                <div class="col-sm-4">
+                    <img src="assets/output_2_coronal_159.png" style="width:100%">
+                </div>
+                <div class="col-sm-8">
+                    <video width="100%" playsinline autoplay loop preload muted>
+                        <source src="assets/output_2_coronal_159.webm" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <hr>
+            <div class="row align-items-center">
+                <div class="col-sm-4">
+                    <img src="assets/output_2_axial_159.png" style="width:100%">
+                </div>
+                <div class="col-sm-8">
+                    <video width="100%" playsinline autoplay loop preload muted>
+                        <source src="assets/output_2_axial_159.webm" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <hr>
+            <div class="row align-items-center">
+                <div class="col-sm-4">
+                    <img src="assets/output_2_coronal_140.png" style="width:100%">
+                </div>
+                <div class="col-sm-8">
+                    <video width="100%" playsinline autoplay loop preload muted>
+                        <source src="assets/output_2_coronal_140.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </div>
-        <div class="row align-items-center">
-            <div class="col-sm-4">
-                <img src="assets/output_1_coronal_130.png" style="width:100%">
-            </div>
-            <div class="col-sm-8">
-                <video width="100%" playsinline autoplay loop preload muted>
-                    <source src="assets/output_1_coronal_130.webm" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <hr>
-        <div class="row align-items-center">
-            <div class="col-sm-4">
-                <img src="assets/output_2_coronal_159.png" style="width:100%">
-            </div>
-            <div class="col-sm-8">
-                <video width="100%" playsinline autoplay loop preload muted>
-                    <source src="assets/output_2_coronal_159.webm" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <hr>
-        <div class="row align-items-center">
-            <div class="col-sm-4">
-                <img src="assets/output_2_axial_159.png" style="width:100%">
-            </div>
-            <div class="col-sm-8">
-                <video width="100%" playsinline autoplay loop preload muted>
-                    <source src="assets/output_2_axial_159.webm" type="video/mp4">
-                </video>
-            </div>
-        </div>
-		<hr>
-        <div class="row align-items-center">
-            <div class="col-sm-4">
-                <img src="assets/output_2_coronal_140.png" style="width:100%">
-            </div>
-            <div class="col-sm-8">
-                <video width="100%" playsinline autoplay loop preload muted>
-                    <source src="assets/output_2_coronal_140.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-    </div>
 
-    <div class="section">
-        <h2>Supervised Arbitrary Slice Spacing Reduction of HCP-1200</h2>
-        <hr>
-        <p>
-            Changing Slice Spacing from 4mm to 1mm. The following results are visualized by nearest up-sampling.
-        </p>
-        <div class="row align-items-center">
-            <div class="col-sm-6 text-center">
-                <h4>Input (32px)</h4>
+        <div class="section">
+            <h2>Supervised Arbitrary Slice Spacing Reduction of HCP-1200</h2>
+            <hr>
+            <p>
+                Changing Slice Spacing from 4mm to 1mm. The following results are visualized by nearest up-sampling.
+            </p>
+            <div class="row align-items-center">
+                <div class="col-sm-6 text-center">
+                    <h4>Input (32px)</h4>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h4>LIIF in changing resolution (32px-640px)</h4>
+                </div>
             </div>
-            <div class="col-sm-6 text-center">
-                <h4>LIIF in changing resolution (32px-640px)</h4>
-            </div>
-        </div>
-        <!-- <div class="row">
+            <!-- <div class="row">
             <div class="col-sm-6">
                 <img src="assets/output_2_axial_160.png" style="width:100%">
             </div>
@@ -162,45 +176,47 @@ We deploy our proposed model on a self-supervised reduction of MRI slice spacing
                 </video>
             </div>
         </div> -->
-        <!-- <p>Also, we compared the proposed method with other super-resolution methods.</p> -->
-    </div>
-
-    <div class="section">
-        <h2>BibTeX</h2>
-        <hr>
-        <div class="bibtexsection">
-@article{wang2022arbitrary,
-    title={Arbitrary Reduction of MRI Slice Spacing Based on Local-Aware Implicit Representation},
-    author={Wang, Xin 
-            and Xuan, Kai 
-            and Wang, Sheng 
-            and Xiong, Honglin 
-            and Zhang, Lichi 
-            and Wang, Qian},
-    journal={arXiv preprint arXiv:2205.11346},
-    year={2022}
-    }
+            <!-- <p>Also, we compared the proposed method with other super-resolution methods.</p> -->
         </div>
+
+        <div class="section">
+            <h2>BibTeX</h2>
+            <hr>
+            <div class="bibtexsection">
+                @article{wang2022arbitrary,
+                title={Arbitrary Reduction of MRI Slice Spacing Based on Local-Aware Implicit Representation},
+                author={Wang, Xin
+                and Xuan, Kai
+                and Wang, Sheng
+                and Xiong, Honglin
+                and Zhang, Lichi
+                and Wang, Qian},
+                journal={arXiv preprint arXiv:2205.11346},
+                year={2022}
+                }
+            </div>
+        </div>
+
+        <hr>
+
+        <footer>
+            <p><span style="color: #AAAAAA">Acknowledgment: website template from <a
+                        href="https://vsitzmann.github.io/siren/">SIREN</a></span></p>
+        </footer>
+
     </div>
 
-	<hr>
 
-	<footer>
-        <p><span style="color: #AAAAAA">Acknowledgment: website template from <a href="https://vsitzmann.github.io/siren/">SIREN</a></span></p>
-    </footer>
-
-</div>
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 
 </body>
+
 </html>
